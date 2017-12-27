@@ -14,3 +14,12 @@ The container expects a license file to be named ```foundry_float.lic```. This l
 ```bash
 docker run --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -v /c/Users/admin/rlm/licenses:/opt/rlm/licenses -i -t tokejepsen/docker-foundry-rlm:latest
 ```
+
+To find the IP address of the container, first get the ID with:
+```bash
+docker ps
+```
+Then get the IP address with:
+```bash
+docker inspect CONTAINE_ID
+```

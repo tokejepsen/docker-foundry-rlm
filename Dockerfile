@@ -24,4 +24,4 @@ EXPOSE 5054
 EXPOSE 4101
 
 # Run the license server directly with a license file called "foundry_float.lic"
-CMD /usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry -c /opt/rlm/licenses/foundry_float.lic
+CMD ["/usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry", "-c", "/opt/rlm/licenses/foundry_float.lic"]
