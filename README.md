@@ -21,5 +21,5 @@ docker ps
 ```
 Then get the IP address with:
 ```bash
-docker inspect CONTAINE_ID
+docker inspect CONTAINER_ID
 ```
