@@ -15,11 +15,10 @@ The container expects a license file to be named ```foundry_float.lic```. This l
 docker run --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -v /c/Users/admin/rlm/licenses:/opt/rlm/licenses -i -t tokejepsen/docker-foundry-rlm:latest
 ```
 
-To find the IP address of the container, first get the ID with:
-```bash
-docker ps
+The first line of the output will show the IP address.
 ```
-Then get the IP address with:
-```bash
-docker inspect CONTAINER_ID
+IP ADDRESS:
+172.17.0.2
 ```
+
+When inputting the license server to use in Nuke use ```{PORT NUMBER}@{IP ADDRESS}```. If you didn't specify a port number in the license file it'll be ```5053```.
