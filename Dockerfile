@@ -27,5 +27,5 @@ EXPOSE 4101
 COPY ./start.sh /opt/start.sh
 RUN chmod +x /opt/start.sh
 
-# Run the license server directly with a license file called "foundry_float.lic"
+# Run the startup script
 CMD ["/opt/start.sh"]

@@ -22,3 +22,11 @@ IP ADDRESS:
 ```
 
 When inputting the license server to use in Nuke use ```{PORT NUMBER}@{IP ADDRESS}```. If you didn't specify a port number in the license file it'll be ```5053```.
+
+**Restarting**
+
+Restarting the container works because the license file is temporarily store in the container until its deleted. This means you can have the license server always running even between reboots of the host machine by adding the ```--restart=always```.
+
+```bash
+docker run --restart=always --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -v /c/Users/admin/rlm/licenses:/opt/rlm/licenses -i -t tokejepsen/docker-foundry-rlm:latest
+```
