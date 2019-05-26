@@ -4,7 +4,7 @@ To run Foundry licenses through a Docker container.
 
 **Setup**
 
-In order for the container to serve licenses, you need to be able to ping the container. For Windows/Mac please follow this: https://stackoverflow.com/questions/39216830/how-could-i-ping-my-docker-container-from-my-host
+In order for the container to serve licenses, you need to be able to ping the container. For Windows/Mac please follow this: https://stackoverflow.com/questions/39216830/how-could-i-ping-my-docker-container-from-my-host or https://github.com/docker/for-win/issues/221
 
 Using Docker Desktop the above setup is not necessary.
 
