@@ -16,6 +16,8 @@ EXPOSE 5053
 EXPOSE 5054
 # isv server
 EXPOSE 4101
+# additional isv port
+EXPOSE 4500
 
 # Add startup script
 COPY ./start.sh /opt/start.sh
