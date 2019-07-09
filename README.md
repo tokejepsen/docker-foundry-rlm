@@ -1,6 +1,6 @@
 **Goal**
 
-To run Foundry licenses through a Docker container.
+To run the Foundry licenses server v8 through a Docker container.
 
 **Setup**
 
