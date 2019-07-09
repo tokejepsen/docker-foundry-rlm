@@ -11,12 +11,10 @@ RUN rm FoundryLicensingUtility_8.0.0.deb
 VOLUME /opt/rlm/licenses
 
 # rlm server
-EXPOSE 5053
-# admin gui
-EXPOSE 5054
-# isv server
 EXPOSE 4101
-# additional isv port
+# RLM Web Server (admin gui)
+EXPOSE 4102
+# isv server
 EXPOSE 4500
 
 # Add startup script
