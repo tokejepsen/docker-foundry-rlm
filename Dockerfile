@@ -15,7 +15,7 @@ EXPOSE 4101
 # RLM Web Server (admin gui)
 EXPOSE 4102
 # isv server
-EXPOSE 4500
+EXPOSE 5053
 
 # Add startup script
 COPY ./start.sh /opt/start.sh
