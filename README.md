@@ -47,6 +47,30 @@ To check the server is serving licenses:
 docker exec <container> /usr/local/foundry/LicensingTools7.1/bin/RLM/rlmutil rlmstat -c 5053@localhost -a
 ```
 
+**Troubleshooting**
+
+```
+Communications error with license server (-17)
+Read error from network (-105)
+Reason for failure: Failed to understand response from server.
+```
+
+The client reached ```5053``` but could not complete the redirect to the ISV server. The rlm server hands out the name given by ```--hostname```, so a client pointed at ```5053@localhost``` is sent on to ```licenseserver:4101``` and fails there if that name does not resolve. Check what is being handed out under Status → foundry at ```http://{HOST IP}:5054```, then map the name on the client, in an elevated PowerShell:
+
+```powershell
+Add-Content -Path $env:SystemRoot\System32\drivers\etc\hosts -Value "`n127.0.0.1`tlicenseserver"
+```
+
+Use the Docker host's LAN IP in place of ```127.0.0.1``` on any machine other than the Docker host, or add a DNS A record for ```licenseserver``` to avoid editing every client. Verify:
+
+```powershell
+ping -n 1 licenseserver
+Test-NetConnection licenseserver -Port 5053
+Test-NetConnection licenseserver -Port 4101
+```
+
+Then point Nuke at ```5053@licenseserver``` rather than ```5053@localhost```. Running the container with ```--hostname localhost``` instead avoids the mapping, but no other machine on the network can then be redirected successfully. Either is safe, because RLM authorises against the hostid in the ```HOST``` line and ignores the name.
+
 **Restarting**
 
 Restarting the container works because the license file is temporarily store in the container until its deleted. This means you can have the license server always running even between reboots of the host machine by adding the ```--restart=always```.
